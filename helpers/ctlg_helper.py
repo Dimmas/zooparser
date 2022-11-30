@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-from enums import Tags, Futures
 import csv
 import re
 
@@ -9,13 +8,9 @@ class CTLG_Helper:
     def __init__(
             self,
             html,
-            tag: Tags = None,
-            future: Futures = None,
-            future_name: str = None
+            selector: str = None
     ):
-        self.tag = tag
-        self.future = future
-        self.future_name = future_name
+        self.selector = selector
         self.ctlg = None
         self.bs4 = BeautifulSoup(html, "html.parser")
 
@@ -25,10 +20,9 @@ class CTLG_Helper:
     ):
         if node == 'root':
             try:
-                selector = f'{self.__construct_selector__()} ul li.lev1'
-                self.ctlg = self.bs4.select(selector)
+                self.ctlg = self.bs4.select(self.selector)
             except AttributeError:
-                exit(f'not fount root category by SCC-selector: {selector}')
+                exit(f'not fount root category by SCC-selector: {self.selector}')
         else:
             try:
                 self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"{node}$")}).parent
@@ -77,11 +71,3 @@ class CTLG_Helper:
             )
             dict_writer.writeheader()
             dict_writer.writerows(catalog)
-
-    def __construct_selector__(self):
-        selector = ''
-        if self.tag:
-            selector += self.tag
-        if self.future:
-            selector += self.future + self.future_name
-        return selector
