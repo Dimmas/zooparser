@@ -17,19 +17,19 @@ class CTLG_Helper:
 
     def get_catalog(
             self,
-            node: str = 'root',
+            subcatalog: str = None,
     ):
-        if node == 'root':
+        if not subcatalog:
             try:
                 self.ctlg = self.bs4.select(self.selector)
             except AttributeError:
                 exit(f'not fount root category by SCC-selector: {self.selector}')
         else:
             try:
-                self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"{node}$")}).parent
-                self.ctlg = self.ctlg.select('ul')
+                self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"\/{subcatalog}\/$")}).parent
+                self.ctlg = self.ctlg.select('li')
             except AttributeError:
-                exit(f'not fount category by href: {node}')
+                exit(f'not fount category by href: {subcatalog}')
         return self.ctlg
 
     def get_childs(self):

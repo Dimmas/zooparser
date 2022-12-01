@@ -16,8 +16,8 @@ class CTGR_Helper:
         try:
             last_page_href = self.bs4.select(selector)[-1]['href']
             self.page_count = re.findall(r'PAGEN_1=(\d+)', last_page_href)[0]
-        except AttributeError:
-            print(f'not fount page navigation bar by selector: {selector}')
+        except:
+            pass
         return self.page_count
 
     def get_href_set_prod(self, selector):
@@ -25,6 +25,4 @@ class CTGR_Helper:
         self.href_set = {a['href'] for a in prod_a}
 
     def get_href_set(self):
-        if not self.href_set:
-            raise Exception("category is not parsed")
         return self.href_set

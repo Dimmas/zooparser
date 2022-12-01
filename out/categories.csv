@@ -1,5 +1,7 @@
 name;id;parent_id
-;aksessuary;tovary-i-korma-dlya-khorkov
-;kletki;tovary-i-korma-dlya-khorkov
-;korm;tovary-i-korma-dlya-khorkov
-;shampuni;tovary-i-korma-dlya-khorkov
+Взрослые;vzroslye;belcando
+Пожилые;pozhilye;belcando
+Щенки;shchenki;belcando
+Взрослые;vzroslye;hill-s
+Котята;kotyata;hill-s
+Пожилые;pozhilye;hill-s
