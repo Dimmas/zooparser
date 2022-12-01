@@ -12,6 +12,7 @@ class CTLG_Helper:
     ):
         self.selector = selector
         self.ctlg = None
+        self.href_set = set()
         self.bs4 = BeautifulSoup(html, "html.parser")
 
     def get_catalog(
@@ -27,14 +28,11 @@ class CTLG_Helper:
             try:
                 self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"{node}$")}).parent
                 self.ctlg = self.ctlg.select('ul')
-                print(self.ctlg)
-                # не цепляет корневой каталог Хорьки
             except AttributeError:
                 exit(f'not fount category by href: {node}')
         return self.ctlg
 
     def get_childs(self):
-        href_set = set()
         if not self.ctlg:
             raise Exception("menu is not parsed")
         for li in self.ctlg:
@@ -42,8 +40,8 @@ class CTLG_Helper:
             try:
                 name = a[0].text.strip()
                 href = a[0].get('href')
-                if not href in href_set:
-                    href_set.add(href)
+                if not href in self.href_set:
+                    self.href_set.add(href)
                     yield name, href
             except IndexError:
                 continue
@@ -56,13 +54,17 @@ class CTLG_Helper:
             if child_href[-1] == '/':
                 child_href = child_href[:-1]
             path = child_href.split('/')
-            entity = {'name': child_name, 'id': path[-1], 'parent_id': path[-2]}
-            catalog.append(entity)
+            catalog.append({'name': child_name, 'id': path[-1], 'parent_id': path[-2]})
         return catalog
 
+    def get_href_set(self):
+        if not len(self.href_set):
+            raise Exception("catalog is not parsed")
+        return self.href_set
+
     @staticmethod
-    def save_catalog(catalog: dict):
-        with open('csv/categories.csv', 'w', encoding='utf8', newline='') as output_file:
+    def save_csv(catalog: dict):
+        with open('out/categories.csv', 'w', encoding='utf8', newline='') as output_file:
             dict_writer = csv.DictWriter(
                 output_file,
                 delimiter=";",
