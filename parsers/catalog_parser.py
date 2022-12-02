@@ -18,25 +18,35 @@ class CatalogParser:
         if subcatalog:
             for subcat in subcatalog:
                 parent_catalog, *_, child_catalog = subcat.split('/')
-                full_cat, href_set = self.parse_subcatalog(
-                    source=f'{self.source}catalog/{parent_catalog}/',
-                    subcatalog=child_catalog
-                )
-                self.full_catalog += full_cat
-                ctlg_href_set = ctlg_href_set.union(href_set)
+                try:
+                    full_cat, href_set = self.parse_subcatalog(
+                        source=f'{self.source}catalog/{parent_catalog}/',
+                        subcatalog=child_catalog
+                    )
+                    self.full_catalog += full_cat
+                    ctlg_href_set = ctlg_href_set.union(href_set)
+                except Exception as e:
+                    print(e)
         else:
             html = PG_Helper(self.source).get_text()
+            if not html:
+                raise Exception('not connection to ', self.source)
             ctlg_parser = CTLG_Helper(html, selector='#catalog-menu ul li.lev1')
             ctlg_parser.get_catalog()
             for _, child_href in ctlg_parser.get_childs():
-                full_cat, href_set = self.parse_subcatalog(self.source + child_href[1:])
-                self.full_catalog += full_cat
-                ctlg_href_set = ctlg_href_set.union(href_set)
+                try:
+                    full_cat, href_set = self.parse_subcatalog(self.source + child_href[1:])
+                    self.full_catalog += full_cat
+                    ctlg_href_set = ctlg_href_set.union(href_set)
+                except Exception as e:
+                    print(e)
         return ctlg_href_set
 
     @staticmethod
     def parse_subcatalog(source, subcatalog=None):
         html = PG_Helper(source).get_text()
+        if not html:
+            raise Exception('not connection to ', source)
         subctlg_parser = CTLG_Helper(html, selector='div.catalog-menu-left ul li')
         subctlg_parser.get_catalog(subcatalog=subcatalog)
         return subctlg_parser.get_childs_list(), subctlg_parser.get_href_set()

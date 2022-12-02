@@ -1,0 +1,18 @@
+{
+  "categories" : [
+    "tovary-i-korma-dlya-sobak/korm-sukhoy/belcando",
+    "tovary-i-korma-dlya-koshek/korm-lechebnyy/hill-s"
+  ],
+  "output_directory" : "out",
+  "delay_range_s": [1, 3],
+  "max_retries": 3,
+  "headers" :
+  {
+    "User-Agent" : "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)"
+  },
+  "logs" : "logs",
+  "restart": {
+      "restart_count": 3,
+      "interval_m": 0.1
+    }
+}

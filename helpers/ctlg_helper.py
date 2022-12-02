@@ -1,3 +1,4 @@
+from helpers.cfg_helper import CFG_helper
 from bs4 import BeautifulSoup
 import csv
 import re
@@ -23,13 +24,13 @@ class CTLG_Helper:
             try:
                 self.ctlg = self.bs4.select(self.selector)
             except AttributeError:
-                exit(f'not fount root category by SCC-selector: {self.selector}')
+                raise Exception(f'not fount root category by SCC-selector: {self.selector}')
         else:
             try:
                 self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"\/{subcatalog}\/$")}).parent
                 self.ctlg = self.ctlg.select('li')
             except AttributeError:
-                exit(f'not fount category by href: {subcatalog}')
+                raise Exception(f'not fount category by href: {subcatalog}')
         return self.ctlg
 
     def get_childs(self):
@@ -64,7 +65,7 @@ class CTLG_Helper:
 
     @staticmethod
     def save_csv(catalog: dict):
-        with open('out/categories.csv', 'w', encoding='utf8', newline='') as output_file:
+        with open(f'{CFG_helper().get_output_directory()}/categories.csv', 'w', encoding='utf8', newline='') as output_file:
             dict_writer = csv.DictWriter(
                 output_file,
                 delimiter=";",
