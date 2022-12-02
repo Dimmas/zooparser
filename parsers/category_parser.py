@@ -26,57 +26,57 @@ class CategoryParser:
         for href in href_set:
             print(f'==== start parsing category {href} ====')
             href = self.source[:-1] + href + '?pc=60'
-            html = PG_Helper(href).get_text()
+            with PG_Helper(href) as pgh:
+                html = pgh.get_text()
             if not html:
                 print('not connection to ', href)
                 continue
-            cat_parser = CTGR_Helper(html)
-            cat_page_count = int(cat_parser.get_page_count(selector='div.navigation a'))
+            with CTGR_Helper(html) as cat_parser:
+                cat_page_count = int(cat_parser.get_page_count(selector='div.navigation a'))
             print(f'catalog contains {cat_page_count+1} pages')
             try:
                 self.parse_cat_page(href)
-            except Exception as e:
-                print()
+            except:
                 return False
             if cat_page_count:
                 for page_num in range(2, cat_page_count + 1):
                     try:
                         self.parse_cat_page(href, page_num)
-                    except Exception as e:
-                        print()
+                    except:
                         continue
 
     def parse_cat_page(self, href, page_num=1):
-        html = PG_Helper(href + '&PAGEN_1=' + str(page_num)).get_text()
+        with PG_Helper(href + '&PAGEN_1=' + str(page_num)) as pgh:
+            html = pgh.get_text()
         if not html:
             raise Exception('not connection to ', href)
-        cat_parser = CTGR_Helper(html)
-        cat_parser.get_href_set_prod(selector='div.catalog-section a.name')
-        if cat_parser.get_href_set():
-            print(f'start parsing {page_num} page: ', href)
-            for href in cat_parser.get_href_set():
-                try:
-                    positions = [product for product in self.parse_prod(href)]
-                except Exception as e:
-                    print()
-                    continue
-                self.save_csv(positions)
-            print(f'parsing page № {page_num} is completed')
-        else:
-            print('page is empty: ', href)
+        with CTGR_Helper(html) as cat_parser:
+            cat_parser.get_href_set_prod(selector='div.catalog-section a.name')
+            if cat_parser.get_href_set():
+                print(f'start parsing {page_num} page: ', href)
+                for href in cat_parser.get_href_set():
+                    try:
+                        positions = [product for product in self.parse_prod(href)]
+                    except:
+                        continue
+                    self.save_csv(positions)
+                print(f'parsing page № {page_num} is completed')
+            else:
+                print('page is empty: ', href)
 
     def parse_prod(self, href):
-        html = PG_Helper(self.source[:-1] + href).get_text()
+        with PG_Helper(self.source[:-1] + href) as pgh:
+            html = pgh.get_text()
         if not html:
             raise Exception('not connection to ', href)
-        product_helper = PRD_Helper(html)
-        product_helper.sku_link = self.source + href
-        for product in product_helper.get_prod(selector='div.catalog-element-top'):
-            if (product['sku_barcode'], product['sku_article']) in self.hash:
-                continue
-            self.hash.add((product['sku_barcode'], product['sku_article']))
-            print(f"  parsed position (articul={str(product['sku_article'])}, barcode={str(product['sku_barcode'])})")
-            yield product
+        with PRD_Helper(html) as product_helper:
+            product_helper.sku_link = self.source + href
+            for product in product_helper.get_prod(selector='div.catalog-element-top'):
+                if (product['sku_barcode'], product['sku_article']) in self.hash:
+                    continue
+                self.hash.add((product['sku_barcode'], product['sku_article']))
+                print(f"  parsed position (articul={str(product['sku_article'])}, barcode={str(product['sku_barcode'])})")
+                yield product
 
     def save_csv(self, positions):
         with open(f'{self.output_directory}/positions.csv', 'a', encoding='utf8', newline='') as output_file:

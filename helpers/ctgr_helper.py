@@ -3,6 +3,7 @@ import re
 
 
 class CTGR_Helper:
+    __slots__ = ('href_set', 'bs4', 'page_count')
 
     def __init__(
             self,
@@ -11,6 +12,9 @@ class CTGR_Helper:
         self.href_set = set()
         self.bs4 = BeautifulSoup(html, "html.parser")
         self.page_count = 0
+
+    def __enter__(self):
+        return self
 
     def get_page_count(self, selector):
         try:
@@ -26,3 +30,7 @@ class CTGR_Helper:
 
     def get_href_set(self):
         return self.href_set
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_val:
+            raise

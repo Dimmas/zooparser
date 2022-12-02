@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 class PRD_Helper:
+    __slots__ = ('bs4', 'sku_link')
     futures = (
         'price_datetime',
         'price',
@@ -25,6 +26,9 @@ class PRD_Helper:
             html
     ):
         self.bs4 = BeautifulSoup(html, "html.parser")
+
+    def __enter__(self):
+        return self
 
     def get_prod(self, selector):
         try:
@@ -139,3 +143,7 @@ class PRD_Helper:
 
     def position_warning(self):
         print('positions not found on page ', self.sku_link)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_val:
+            raise

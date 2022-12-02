@@ -5,6 +5,7 @@ import re
 
 
 class CTLG_Helper:
+    __slots__ = ('selector', 'ctlg', 'href_set', 'bs4')
 
     def __init__(
             self,
@@ -15,6 +16,9 @@ class CTLG_Helper:
         self.ctlg = None
         self.href_set = set()
         self.bs4 = BeautifulSoup(html, "html.parser")
+
+    def __enter__(self):
+        return self
 
     def get_catalog(
             self,
@@ -74,3 +78,7 @@ class CTLG_Helper:
             )
             dict_writer.writeheader()
             dict_writer.writerows(catalog)
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_val:
+            raise
