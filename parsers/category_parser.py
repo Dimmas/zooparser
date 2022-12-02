@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor
 from helpers import CTGR_Helper, PRD_Helper, PG_Helper, CFG_helper
 import csv
 
@@ -22,18 +23,18 @@ class CategoryParser:
             dict_writer.writeheader()
         return self
 
-    def parse_category(self, href_set: set):
-        for href in href_set:
+    def parse_categories(self, href_set: set):
+        def parse_category(href):
             print(f'==== start parsing category {href} ====')
             href = self.source[:-1] + href + '?pc=60'
             with PG_Helper(href) as pgh:
                 html = pgh.get_text()
             if not html:
                 print('not connection to ', href)
-                continue
+                return False
             with CTGR_Helper(html) as cat_parser:
                 cat_page_count = int(cat_parser.get_page_count(selector='div.navigation a'))
-            print(f'catalog contains {cat_page_count+1} pages')
+            print(f'catalog contains {1 if cat_page_count == 0 else cat_page_count} pages')
             try:
                 self.parse_cat_page(href)
             except:
@@ -44,6 +45,14 @@ class CategoryParser:
                         self.parse_cat_page(href, page_num)
                     except:
                         continue
+
+        delay = CFG_helper().get_delay_range_s()
+        if isinstance(delay, list):
+            with ThreadPoolExecutor(16) as exe:
+                exe.map(parse_category, href_set, timeout=120)
+        else:
+            for href in href_set:
+                parse_category(href)
 
     def parse_cat_page(self, href, page_num=1):
         with PG_Helper(href + '&PAGEN_1=' + str(page_num)) as pgh:

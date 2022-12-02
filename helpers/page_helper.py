@@ -8,13 +8,15 @@ class PG_Helper:
     __slots__ = ('res',)
 
     def __init__(self, source):
+        delay = CFG_helper().get_delay_range_s()
+        if isinstance(delay, list):
+            time.sleep(randint(*delay))
         for _ in range(CFG_helper().get_max_retries()):
             try:
                 self.res = rq.get(source, headers=CFG_helper().get_headers())
                 break
             except:
                 print('not connection to ', source)
-                time.sleep(randint(*CFG_helper().get_delay_range_s()))
 
     def __enter__(self):
         return self

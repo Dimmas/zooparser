@@ -21,10 +21,10 @@ class CFG_helper(object):  # Singleton pattern
                 self.__settings__ = json.load(f)
 
     def get_categories(self):
-        if self.__settings__:
-            if self.__settings__['categories'] == 0:
-                return None
+        try:
             return self.__settings__['categories']
+        except:
+            return None
 
     def get_output_directory(self):
         if self.__settings__:

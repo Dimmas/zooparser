@@ -1,10 +1,6 @@
 {
-  "categories" : [
-    "tovary-i-korma-dlya-sobak/korm-sukhoy/belcando",
-    "tovary-i-korma-dlya-koshek/korm-lechebnyy/hill-s"
-  ],
   "output_directory" : "out",
-  "delay_range_s": [1, 3],
+  "delay_range_s": 0,
   "max_retries": 3,
   "headers" :
   {
