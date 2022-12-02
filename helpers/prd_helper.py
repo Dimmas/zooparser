@@ -3,6 +3,22 @@ from datetime import datetime
 
 
 class PRD_Helper:
+    futures = (
+        'price_datetime',
+        'price',
+        'price_promo',
+        'sku_status',
+        'sku_barcode',
+        'sku_article',
+        'sku_name',
+        'sku_category',
+        'sku_country',
+        'sku_weight_min',
+        'sku_volume_min',
+        'sku_quantity_min',
+        'sku_link',
+        'sku_images'
+    )
 
     def __init__(
             self,
