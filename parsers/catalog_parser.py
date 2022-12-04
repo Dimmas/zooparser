@@ -13,18 +13,16 @@ class CatalogParser:
         return self
 
     def parse_catalog(self, subcatalog: list = None):
-        ctlg_href_set = set()
 
         if subcatalog:
             for subcat in subcatalog:
                 parent_catalog, *_, child_catalog = subcat.split('/')
                 try:
-                    full_cat, href_set = self.parse_subcatalog(
+                    full_cat = self.parse_subcatalog(
                         source=f'{self.source}catalog/{parent_catalog}/',
                         subcatalog=child_catalog
                     )
                     self.full_catalog += full_cat
-                    ctlg_href_set = ctlg_href_set.union(href_set)
                 except Exception as e:
                     print(e)
         else:
@@ -36,12 +34,21 @@ class CatalogParser:
                 ctlg_parser.get_catalog()
                 for _, child_href in ctlg_parser.get_childs():
                     try:
-                        full_cat, href_set = self.parse_subcatalog(self.source + child_href[1:])
+                        full_cat = self.parse_subcatalog(self.source + child_href[1:])
                         self.full_catalog += full_cat
-                        ctlg_href_set = ctlg_href_set.union(href_set)
                     except Exception as e:
                         print(e)
-        return ctlg_href_set
+        return self._get_href_list()
+
+    def _get_href_list(self):
+        catalog_href_list = []
+        if len(self.full_catalog):
+            parents_set = {cat['parent_id'] for cat in self.full_catalog}
+            for cat in self.full_catalog:
+                if cat['id'] not in parents_set:
+                    catalog_href_list.append(cat['href'])
+                cat.pop('href')
+        return catalog_href_list
 
     @staticmethod
     def parse_subcatalog(source, subcatalog=None):
@@ -51,7 +58,7 @@ class CatalogParser:
             raise Exception('not connection to ', source)
         with CTLG_Helper(html, selector='div.catalog-menu-left ul li') as subctlg_parser:
             subctlg_parser.get_catalog(subcatalog=subcatalog)
-            return subctlg_parser.get_childs_list(), subctlg_parser.get_href_set()
+            return subctlg_parser.get_childs_list()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         print('catalog parsing is completed')

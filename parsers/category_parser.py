@@ -5,6 +5,7 @@ import csv
 
 class CategoryParser:
     hash = set()
+    href_set = set()
 
     def __init__(self, source: str):
         self.source = source
@@ -23,7 +24,14 @@ class CategoryParser:
             dict_writer.writeheader()
         return self
 
-    def parse_categories(self, href_set: set):
+    def parse_categories(self, href_set: list):
+        """
+        Парсит категории. Запускает parse_category(), которая определяет сколько страниц в категории
+        и запускает self.parse_cat_page() для парсинга ссылок на товары с очередной странички категории.
+        на товары
+        :param href_set:
+        :return:
+        """
         def parse_category(href):
             print(f'==== start parsing category {href} ====')
             href = self.source[:-1] + href + '?pc=60'
@@ -47,44 +55,58 @@ class CategoryParser:
                         continue
 
         delay = CFG_helper().get_delay_range_s()
-        if isinstance(delay, list):
+        if not isinstance(delay, list):
             with ThreadPoolExecutor(16) as exe:
-                exe.map(parse_category, href_set, timeout=120)
+                exe.map(parse_category, href_set, timeout=10)
         else:
             for href in href_set:
                 parse_category(href)
 
     def parse_cat_page(self, href, page_num=1):
-        with PG_Helper(href + '&PAGEN_1=' + str(page_num)) as pgh:
+        """
+        Парсит ссылки на товары с очередной  странички категории (по 60 шт. на странице), вызывает self.parse_prod()
+        для парсинга непостредственно товаров. Если ссылка на товар уже присутствует в множесте собранных товаров,
+        то не парсит такой товар.
+        :param href: ссылка на категорию
+        :param page_num:номер очередной странички
+        """
+        cat_href = href + '&PAGEN_1=' + str(page_num)
+        with PG_Helper(cat_href) as pgh:
             html = pgh.get_text()
         if not html:
-            raise Exception('not connection to ', href)
+            raise Exception('not connection to ', cat_href)
         with CTGR_Helper(html) as cat_parser:
             cat_parser.get_href_set_prod(selector='div.catalog-section a.name')
             if cat_parser.get_href_set():
-                print(f'start parsing {page_num} page: ', href)
+                print(f'start parsing {page_num} page: ', cat_href)
                 for href in cat_parser.get_href_set():
-                    try:
-                        positions = [product for product in self.parse_prod(href)]
-                    except:
-                        continue
-                    self.save_csv(positions)
-                print(f'parsing page № {page_num} is completed')
+                    if href not in self.href_set:
+                        self.href_set.add(href)
+                        try:
+                            positions = [product for product in self.parse_prod(href)]
+                        except:
+                            continue
+                        self.save_csv(positions)
+                print(f'parsing page № {page_num} of {cat_href} is completed')
             else:
-                print('page is empty: ', href)
+                print('page is empty: ', cat_href)
 
     def parse_prod(self, href):
+        """
+        Парсит страничку с товаром. Если и sku_barcode и sku_article уже есть в множестве, то не записывает позицию.
+        :param href: ссылка на страничку с товаром
+        """
         with PG_Helper(self.source[:-1] + href) as pgh:
             html = pgh.get_text()
         if not html:
             raise Exception('not connection to ', href)
         with PRD_Helper(html) as product_helper:
-            product_helper.sku_link = self.source + href
+            product_helper.sku_link = self.source[:-1] + href
             for product in product_helper.get_prod(selector='div.catalog-element-top'):
                 if (product['sku_barcode'], product['sku_article']) in self.hash:
                     continue
-                self.hash.add((product['sku_barcode'], product['sku_article']))
-                print(f"  parsed position (articul={str(product['sku_article'])}, barcode={str(product['sku_barcode'])})")
+                self.hash.add(product['sku_barcode'] + product['sku_article'])
+                #print(f"  parsed position (articul={str(product['sku_article'])}, barcode={str(product['sku_barcode'])})")
                 yield product
 
     def save_csv(self, positions):

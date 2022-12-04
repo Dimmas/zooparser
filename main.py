@@ -21,16 +21,15 @@ def parse_catalog():
 
 
 @restarter
-def parse_categories(ctlg_href_set: set):
+def parse_categories(ctlg_href_list: list):
     with CategoryParser(source) as cat_parser:
-        return cat_parser.parse_categories(ctlg_href_set)
+        return cat_parser.parse_categories(ctlg_href_list)
 
 
 if __name__ == '__main__':
     source = 'https://zootovary.ru/'
 
-    ctlg_href_set = parse_catalog()
+    ctlg_href_list = parse_catalog()
 
-    if ctlg_href_set:
-        parse_categories(ctlg_href_set)
-
+    if ctlg_href_list:
+        parse_categories(ctlg_href_list)

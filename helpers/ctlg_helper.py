@@ -5,7 +5,7 @@ import re
 
 
 class CTLG_Helper:
-    __slots__ = ('selector', 'ctlg', 'href_set', 'bs4')
+    __slots__ = ('selector', 'ctlg', 'bs4')
 
     def __init__(
             self,
@@ -14,7 +14,6 @@ class CTLG_Helper:
     ):
         self.selector = selector
         self.ctlg = None
-        self.href_set = set()
         self.bs4 = BeautifulSoup(html, "html.parser")
 
     def __enter__(self):
@@ -38,6 +37,7 @@ class CTLG_Helper:
         return self.ctlg
 
     def get_childs(self):
+        href_set = set()
         if not self.ctlg:
             raise Exception("menu is not parsed")
         for li in self.ctlg:
@@ -45,8 +45,8 @@ class CTLG_Helper:
             try:
                 name = a[0].text.strip()
                 href = a[0].get('href')
-                if not href in self.href_set:
-                    self.href_set.add(href)
+                if not href in href_set:
+                    href_set.add(href)
                     yield name, href
             except IndexError:
                 continue
@@ -55,17 +55,12 @@ class CTLG_Helper:
         catalog = []
         for child_name, child_href in self.get_childs():
             if child_href[0] == '/':
-                child_href = child_href[1:]
+                href = child_href[1:]
             if child_href[-1] == '/':
-                child_href = child_href[:-1]
-            path = child_href.split('/')
-            catalog.append({'name': child_name, 'id': path[-1], 'parent_id': path[-2]})
+                href = child_href[:-1]
+            path = href.split('/')
+            catalog.append({'name': child_name, 'id': path[-1], 'parent_id': path[-2], 'href': child_href})
         return catalog
-
-    def get_href_set(self):
-        if not len(self.href_set):
-            raise Exception("catalog is not parsed")
-        return self.href_set
 
     @staticmethod
     def save_csv(catalog: dict):
