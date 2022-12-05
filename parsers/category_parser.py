@@ -93,7 +93,7 @@ class CategoryParser:
                         self.save_csv(positions)
                 category_logger.info(f'parsing completed for page № {page_num} of {cat_href}')
             else:
-                category_logger.error(f'page is empty: {cat_href}')
+                category_logger.warning(f'page is empty: {cat_href}')
 
     def parse_prod(self, href):
         """
