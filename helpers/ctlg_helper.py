@@ -26,13 +26,13 @@ class CTLG_Helper:
         if not subcatalog:
             try:
                 self.ctlg = self.bs4.select(self.selector)
-            except AttributeError:
+            except:
                 raise Exception(f'not fount root category by SCC-selector: {self.selector}')
         else:
             try:
                 self.ctlg = self.bs4.find('a', attrs={'href': re.compile(f"\/{subcatalog}\/$")}).parent
                 self.ctlg = self.ctlg.select('li')
-            except AttributeError:
+            except:
                 raise Exception(f'not fount category by href: {subcatalog}')
         return self.ctlg
 

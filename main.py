@@ -1,6 +1,8 @@
 from parsers import CatalogParser, CategoryParser
-from helpers import CFG_helper
+from helpers import CFG_helper, get_logger
 import time
+
+main_logger = get_logger(__name__)
 
 
 def restarter(fn):
@@ -9,7 +11,8 @@ def restarter(fn):
             try:
                 return fn(*args, **kwargs)
             except:
-                print('Critical error. Restart parsing.')
+                print('Critical error. Parser would be restarted.')
+                main_logger.exception('exception')
                 time.sleep(CFG_helper().get_restart()['interval_m']*60)
     return wrapper
 

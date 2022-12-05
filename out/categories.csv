@@ -1,143 +1,143 @@
 name;id;parent_id
-Корм сухой;korm-sukhoy;tovary-i-korma-dlya-sobak
-1st Choice;1st-choice;korm-sukhoy
-Acana;acana;korm-sukhoy
+Корм сухой для собак;korm_sukhoy_dlya_sobak;tovary-i-korma-dlya-sobak
+1st Choice;1st-choice;korm_sukhoy_dlya_sobak
+Acana;acana;korm_sukhoy_dlya_sobak
 Лакомства;lakomstva_1;acana
 Взрослые;vzroslye;acana
 Пожилые;pozhilye;acana
 Щенки;shchenki;acana
-Advance;advance_1;korm-sukhoy
+Advance;advance_1;korm_sukhoy_dlya_sobak
 Щенки;shchenki_1;advance_1
 Взрослые;vzroslye_1;advance_1
 Пожилые;pozhilye_1;advance_1
-Ajo;ajo_1;korm-sukhoy
-All Dogs;all-dogs;korm-sukhoy
-Alleva;alleva_1;korm-sukhoy
-Almo Nature;almo-nature;korm-sukhoy
-Alphapet;alphapet_1;korm-sukhoy
-Arden Grange;arden-grange;korm-sukhoy
+Ajo;ajo_1;korm_sukhoy_dlya_sobak
+All Dogs;all-dogs;korm_sukhoy_dlya_sobak
+Alleva;alleva_1;korm_sukhoy_dlya_sobak
+Almo Nature;almo-nature;korm_sukhoy_dlya_sobak
+Alphapet;alphapet_1;korm_sukhoy_dlya_sobak
+Arden Grange;arden-grange;korm_sukhoy_dlya_sobak
 Щенки;shchenki;arden-grange
 Взрослые;vzroslye;arden-grange
 Пожилые;pozhilye;arden-grange
-Barking Heads;barking-heads;korm-sukhoy
+Barking Heads;barking-heads;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;barking-heads
 Пожилые;pozhilye;barking-heads
 Щенки;shchenki;barking-heads
-Belcando;belcando;korm-sukhoy
+Belcando;belcando;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;belcando
 Пожилые;pozhilye;belcando
 Щенки;shchenki;belcando
-Berkley;berkley_1;korm-sukhoy
-Best Dinner;best-dinner_2;korm-sukhoy
-Bewi Dog;bewi-dog;korm-sukhoy
-Blitz;blitz;korm-sukhoy
-Bon Appetit;bon-appetit;korm-sukhoy
-Bosch;bosch;korm-sukhoy
+Berkley;berkley_1;korm_sukhoy_dlya_sobak
+Best Dinner;best-dinner_2;korm_sukhoy_dlya_sobak
+Bewi Dog;bewi-dog;korm_sukhoy_dlya_sobak
+Blitz;blitz;korm_sukhoy_dlya_sobak
+Bon Appetit;bon-appetit;korm_sukhoy_dlya_sobak
+Bosch;bosch;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;bosch
 Пожилые;pozhilye;bosch
 Щенки;shchenki;bosch
-Bozita;bozita;korm-sukhoy
+Bozita;bozita;korm_sukhoy_dlya_sobak
 Беззерновой;bezzernovoy_1;bozita
 Naturals;naturals;bozita
 Взрослые;vzroslye;bozita
 Щенки;shchenki;bozita
-Brit;brit;korm-sukhoy
+Brit;brit;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;brit
 Пожилые;pozhilye;brit
 Щенки;shchenki;brit
 Акция Brit;aktsiya-brit;brit
-BrooksField;brooksfield_1;korm-sukhoy
-Canagan;canagan;korm-sukhoy
-Chappi;chappi;korm-sukhoy
-Cibau;cibau;korm-sukhoy
-Clan;clan_4;korm-sukhoy
-Clan Family;clan-family_1;korm-sukhoy
-Classic Pets;classic-pets;korm-sukhoy
-Country Farms;country-farms;korm-sukhoy
-Crave;crave_1;korm-sukhoy
-Crockex;crockex;korm-sukhoy
-Darling;darling;korm-sukhoy
-Dog Chow Purina;dog-chow-purina;korm-sukhoy
+BrooksField;brooksfield_1;korm_sukhoy_dlya_sobak
+Canagan;canagan;korm_sukhoy_dlya_sobak
+Chappi;chappi;korm_sukhoy_dlya_sobak
+Cibau;cibau;korm_sukhoy_dlya_sobak
+Clan;clan_4;korm_sukhoy_dlya_sobak
+Clan Family;clan-family_1;korm_sukhoy_dlya_sobak
+Classic Pets;classic-pets;korm_sukhoy_dlya_sobak
+Country Farms;country-farms;korm_sukhoy_dlya_sobak
+Crave;crave_1;korm_sukhoy_dlya_sobak
+Crockex;crockex;korm_sukhoy_dlya_sobak
+Darling;darling;korm_sukhoy_dlya_sobak
+Dog Chow Purina;dog-chow-purina;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;dog-chow-purina
 Пожилые;pozhilye;dog-chow-purina
 Щенки;shchenki;dog-chow-purina
 Акция Dog Chow;aktsiya-dog-chow;dog-chow-purina
-Dogs Menu;dogs-menu_1;korm-sukhoy
-Dr. Alder`s;dr-alder-s;korm-sukhoy
-Dr.Clauders;dr-clauders;korm-sukhoy
-Ecopet;ecopet;korm-sukhoy
-Elato;elato_1;korm-sukhoy
-Eukanuba;eukanuba_4;korm-sukhoy
-Farmina;farmina;korm-sukhoy
+Dogs Menu;dogs-menu_1;korm_sukhoy_dlya_sobak
+Dr. Alder`s;dr-alder-s;korm_sukhoy_dlya_sobak
+Dr.Clauders;dr-clauders;korm_sukhoy_dlya_sobak
+Ecopet;ecopet;korm_sukhoy_dlya_sobak
+Elato;elato_1;korm_sukhoy_dlya_sobak
+Eukanuba;eukanuba_4;korm_sukhoy_dlya_sobak
+Farmina;farmina;korm_sukhoy_dlya_sobak
 С киноа;s-kinoa_1;farmina
 С тыквой;s-tykvoy;farmina
 Беззерновой;bezzernovoy;farmina
 Низкозерновой;nizkozernovoy;farmina
-Fitmin;fitmin_1;korm-sukhoy
-Friskies;friskies_2;korm-sukhoy
-Fun Dog;fun-dog;korm-sukhoy
-Gina;gina;korm-sukhoy
-Glance;glance;korm-sukhoy
-GO!;go;korm-sukhoy
-Golden Eagle;golden-eagle;korm-sukhoy
+Fitmin;fitmin_1;korm_sukhoy_dlya_sobak
+Friskies;friskies_2;korm_sukhoy_dlya_sobak
+Fun Dog;fun-dog;korm_sukhoy_dlya_sobak
+Gina;gina;korm_sukhoy_dlya_sobak
+Glance;glance;korm_sukhoy_dlya_sobak
+GO!;go;korm_sukhoy_dlya_sobak
+Golden Eagle;golden-eagle;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;golden-eagle
 Пожилые;pozhilye;golden-eagle
 Щенки;shchenki;golden-eagle
-Grand Prix;grand-prix;korm-sukhoy
-Happy Dog;happy-dog;korm-sukhoy
+Grand Prix;grand-prix;korm_sukhoy_dlya_sobak
+Happy Dog;happy-dog;korm_sukhoy_dlya_sobak
 Natur Croq;natur-croq;happy-dog
 Profi-Line;profi-line;happy-dog
 Взрослые;vzroslye;happy-dog
 Пожилые;pozhilye;happy-dog
 Щенки;shchenki;happy-dog
-Hills;hills;korm-sukhoy
+Hills;hills;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;hills
 Пожилые;pozhilye;hills
 Щенки;shchenki;hills
-Jump;jump;korm-sukhoy
-Karmy;karmy_1;korm-sukhoy
-Kudo;kudo;korm-sukhoy
-Leo&Lucy;leo-lucy_3;korm-sukhoy
-Meglium;meglium;korm-sukhoy
-Morando;morando_3;korm-sukhoy
-Mr.Buffalo;mr-buffalo_1;korm-sukhoy
-Natural Greatness;natural-greatness_1;korm-sukhoy
-Nature`s Table;nature-s-table_2;korm-sukhoy
-Nature’s Protection;nature-s-protection_1;korm-sukhoy
-Natyka;natyka;korm-sukhoy
-Nero Gold;nero-gold_1;korm-sukhoy
-Now;now;korm-sukhoy
-Nutram;nutram;korm-sukhoy
+Jump;jump;korm_sukhoy_dlya_sobak
+Karmy;karmy_1;korm_sukhoy_dlya_sobak
+Kudo;kudo;korm_sukhoy_dlya_sobak
+Leo&Lucy;leo-lucy_3;korm_sukhoy_dlya_sobak
+Meglium;meglium;korm_sukhoy_dlya_sobak
+Morando;morando_3;korm_sukhoy_dlya_sobak
+Mr.Buffalo;mr-buffalo_1;korm_sukhoy_dlya_sobak
+Natural Greatness;natural-greatness_1;korm_sukhoy_dlya_sobak
+Nature`s Table;nature-s-table_2;korm_sukhoy_dlya_sobak
+Nature’s Protection;nature-s-protection_1;korm_sukhoy_dlya_sobak
+Natyka;natyka;korm_sukhoy_dlya_sobak
+Nero Gold;nero-gold_1;korm_sukhoy_dlya_sobak
+Now;now;korm_sukhoy_dlya_sobak
+Nutram;nutram;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye_2;nutram
 Пожилые;pozhilye_2;nutram
 Щенки;shchenki_2;nutram
-Nutro;nutro_3;korm-sukhoy
-Organix;organix_4;korm-sukhoy
-Orijen;orijen;korm-sukhoy
-Pedigree;pedigree;korm-sukhoy
+Nutro;nutro_3;korm_sukhoy_dlya_sobak
+Organix;organix_4;korm_sukhoy_dlya_sobak
+Orijen;orijen;korm_sukhoy_dlya_sobak
+Pedigree;pedigree;korm_sukhoy_dlya_sobak
 Denta Sticx;denta-sticx;pedigree
 Взрослые;vzroslye;pedigree
 Щенки;shchenki;pedigree
-Perfect Fit;perfect-fit;korm-sukhoy
-Piccolo;piccolo;korm-sukhoy
-Primordial;primordial;korm-sukhoy
-Pro Pac;pro-pac;korm-sukhoy
+Perfect Fit;perfect-fit;korm_sukhoy_dlya_sobak
+Piccolo;piccolo;korm_sukhoy_dlya_sobak
+Primordial;primordial;korm_sukhoy_dlya_sobak
+Pro Pac;pro-pac;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;pro-pac
 Пожилые;pozhilye;pro-pac
 Щенки;shchenki;pro-pac
-Pro Plan;pro-plan;korm-sukhoy
+Pro Plan;pro-plan;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;pro-plan
 Пожилые;pozhilye;pro-plan
 Щенки;shchenki;pro-plan
-ProBalance;probalance_1;korm-sukhoy
-Pronature;pronature;korm-sukhoy
+ProBalance;probalance_1;korm_sukhoy_dlya_sobak
+Pronature;pronature;korm_sukhoy_dlya_sobak
 Взрослые;vzroslye;pronature
 Пожилые;pozhilye;pronature
 Холистик;kholistik;pronature
 Щенки;shchenki;pronature
-Puffins;puffins;korm-sukhoy
-Purina One;purina-one_1;korm-sukhoy
-Royal Canin;royal-canin;korm-sukhoy
+Puffins;puffins;korm_sukhoy_dlya_sobak
+Purina One;purina-one_1;korm_sukhoy_dlya_sobak
+Royal Canin;royal-canin;korm_sukhoy_dlya_sobak
 Для взрослых собак;dlya-vzroslykh-sobak;royal-canin
 Giant;giant;dlya-vzroslykh-sobak
 Maxi;maxi;dlya-vzroslykh-sobak
@@ -153,109 +153,109 @@ Mini;mini;shchenki
 Молоко;moloko;shchenki
 Отдельные породы;otdelnye-porody;shchenki
 Акции Royal Canin;aktsii-royal-canin;royal-canin
-Savarra;savarra_1;korm-sukhoy
-Schesir;schesir_1;korm-sukhoy
-Sirius;sirius_1;korm-sukhoy
-Smart Dog;smart-dog;korm-sukhoy
-Summit;summit;korm-sukhoy
-Takk;takk_1;korm-sukhoy
-Tasty;tasty_2;korm-sukhoy
-Trainer;trainer_1;korm-sukhoy
-Vivere;vivere;korm-sukhoy
-Wildy;wildy_1;korm-sukhoy
-Zillii;zillii_2;korm-sukhoy
-Верные друзья;vernye-druzya;korm-sukhoy
-Для Самых Преданных;dlya-samykh-predannykh_1;korm-sukhoy
-Дог Ланч;dog-lanch_1;korm-sukhoy
-Зоогурман;zoogurman_2;korm-sukhoy
-Мираторг-Winner;miratorg-winner_1;korm-sukhoy
-Наш рацион;nash-ratsion;korm-sukhoy
-Наша марка;nasha-marka;korm-sukhoy
-Оскар;oskar;korm-sukhoy
-Прохвост;prokhvost_3;korm-sukhoy
-Родные корма;rodnye-korma;korm-sukhoy
-Терагав;teragav_1;korm-sukhoy
-ТитБит;titbit_4;korm-sukhoy
-Трапеза;trapeza;korm-sukhoy
-Фаворит;favorit;korm-sukhoy
-Флорида;florida_1;korm-sukhoy
-Четвероногий гурман;chetveronogiy-gurman;korm-sukhoy
-Эккорм;ekkorm;korm-sukhoy
-Корм влажный;korm-vlazhnyy;tovary-i-korma-dlya-sobak
-All Dogs;all-dogs_1;korm-vlazhnyy
-Almo Nature;almo-nature;korm-vlazhnyy
+Savarra;savarra_1;korm_sukhoy_dlya_sobak
+Schesir;schesir_1;korm_sukhoy_dlya_sobak
+Sirius;sirius_1;korm_sukhoy_dlya_sobak
+Smart Dog;smart-dog;korm_sukhoy_dlya_sobak
+Summit;summit;korm_sukhoy_dlya_sobak
+Takk;takk_1;korm_sukhoy_dlya_sobak
+Tasty;tasty_2;korm_sukhoy_dlya_sobak
+Trainer;trainer_1;korm_sukhoy_dlya_sobak
+Vivere;vivere;korm_sukhoy_dlya_sobak
+Wildy;wildy_1;korm_sukhoy_dlya_sobak
+Zillii;zillii_2;korm_sukhoy_dlya_sobak
+Верные друзья;vernye-druzya;korm_sukhoy_dlya_sobak
+Для Самых Преданных;dlya-samykh-predannykh_1;korm_sukhoy_dlya_sobak
+Дог Ланч;dog-lanch_1;korm_sukhoy_dlya_sobak
+Зоогурман;zoogurman_2;korm_sukhoy_dlya_sobak
+Мираторг-Winner;miratorg-winner_1;korm_sukhoy_dlya_sobak
+Наш рацион;nash-ratsion;korm_sukhoy_dlya_sobak
+Наша марка;nasha-marka;korm_sukhoy_dlya_sobak
+Оскар;oskar;korm_sukhoy_dlya_sobak
+Прохвост;prokhvost_3;korm_sukhoy_dlya_sobak
+Родные корма;rodnye-korma;korm_sukhoy_dlya_sobak
+Терагав;teragav_1;korm_sukhoy_dlya_sobak
+ТитБит;titbit_4;korm_sukhoy_dlya_sobak
+Трапеза;trapeza;korm_sukhoy_dlya_sobak
+Фаворит;favorit;korm_sukhoy_dlya_sobak
+Флорида;florida_1;korm_sukhoy_dlya_sobak
+Четвероногий гурман;chetveronogiy-gurman;korm_sukhoy_dlya_sobak
+Эккорм;ekkorm;korm_sukhoy_dlya_sobak
+Корм влажный для собак;korm_vlazhnyy_dlya_sobak;tovary-i-korma-dlya-sobak
+All Dogs;all-dogs_1;korm_vlazhnyy_dlya_sobak
+Almo Nature;almo-nature;korm_vlazhnyy_dlya_sobak
 HFC;hfc_1;almo-nature
 Holistic;holistic_1;almo-nature
 Classic;classic;almo-nature
 Daily Menu;daily-menu;almo-nature
-Animonda;animonda;korm-vlazhnyy
-Arden Grange;arden-grange;korm-vlazhnyy
-Barking Heads;barking-heads_1;korm-vlazhnyy
-Belcando;belcando;korm-vlazhnyy
-Berkley;berkley;korm-vlazhnyy
-Big Dog;big-dog;korm-vlazhnyy
-BioMenu;biomenu;korm-vlazhnyy
-Blitz;blitz_2;korm-vlazhnyy
-Bozita;bozita;korm-vlazhnyy
-Brit;brit;korm-vlazhnyy
-BrooksField;brooksfield_3;korm-vlazhnyy
-Cesar;cesar;korm-vlazhnyy
-Chappi;chappi;korm-vlazhnyy
-Clan Family;clan-family;korm-vlazhnyy
-Crave;crave_3;korm-vlazhnyy
-Dogs Menu;dogs-menu;korm-vlazhnyy
-Dr. Alder`s;dr-alder-s;korm-vlazhnyy
-Edel Dog;edel-dog;korm-vlazhnyy
-Eukanuba;eukanuba_3;korm-vlazhnyy
-Farmina;farmina_2;korm-vlazhnyy
-FeliCat;felicat_1;korm-vlazhnyy
-Friskies;friskies_1;korm-vlazhnyy
-GimDog;gimdog;korm-vlazhnyy
-GO!;go_2;korm-vlazhnyy
-Grand Prix;grand-prix_3;korm-vlazhnyy
-Happy Dog;happy-dog;korm-vlazhnyy
-Hill`s;hill-s;korm-vlazhnyy
-Leo&Lucy;leo-lucy_2;korm-vlazhnyy
-Molina;molina;korm-vlazhnyy
-Morando;morando_2;korm-vlazhnyy
-Natures Protection;natures-protection_1;korm-vlazhnyy
-Nero Gold;nero-gold_2;korm-vlazhnyy
-Nuh;nuh_1;korm-vlazhnyy
-Nutro;nutro_2;korm-vlazhnyy
-Organix;organix_3;korm-vlazhnyy
-Pedigree;pedigree;korm-vlazhnyy
-Prime;prime_1;korm-vlazhnyy
-Pro Plan;pro-plan_1;korm-vlazhnyy
-ProBalance;probalance_2;korm-vlazhnyy
-ProLapa;prolapa_1;korm-vlazhnyy
-Purina One;purina-one;korm-vlazhnyy
-Royal Canin;royal-canin;korm-vlazhnyy
-Savarra;savarra_2;korm-vlazhnyy
-Schesir;schesir;korm-vlazhnyy
-Solid Natura;solid-natura;korm-vlazhnyy
-Stuzzy;stuzzy;korm-vlazhnyy
-Trainer;trainer_2;korm-vlazhnyy
-Vita Pro;vita-pro;korm-vlazhnyy
-VitAnimals;vitanimals;korm-vlazhnyy
-Winner;winner_3;korm-vlazhnyy
-Верные друзья;vernye-druzya;korm-vlazhnyy
-Деревенские лакомства;derevenskie-lakomstva;korm-vlazhnyy
-Дог Ланч;dog-lanch;korm-vlazhnyy
-ЕмБезПроблем;embezproblem;korm-vlazhnyy
-Зоогурман;zoogurman;korm-vlazhnyy
-МнЯмс;mnyams;korm-vlazhnyy
-Натуральная Формула;naturalnaya-formula;korm-vlazhnyy
-Наша марка;nasha-marka;korm-vlazhnyy
-Оскар;oskar;korm-vlazhnyy
-Погрызухин;pogryzukhin_1;korm-vlazhnyy
-Прохвост;prokhvost_2;korm-vlazhnyy
-Родные корма;rodnye-korma;korm-vlazhnyy
-Собачье Счастье;sobache-schaste;korm-vlazhnyy
-СпецМяс;spetsmyas;korm-vlazhnyy
-Терра Пес;terra-pes;korm-vlazhnyy
-ТитБит;titbit_3;korm-vlazhnyy
-Трапеза;trapeza;korm-vlazhnyy
-Четвероногий гурман;chetveronogiy-gurman;korm-vlazhnyy
+Animonda;animonda;korm_vlazhnyy_dlya_sobak
+Arden Grange;arden-grange;korm_vlazhnyy_dlya_sobak
+Barking Heads;barking-heads_1;korm_vlazhnyy_dlya_sobak
+Belcando;belcando;korm_vlazhnyy_dlya_sobak
+Berkley;berkley;korm_vlazhnyy_dlya_sobak
+Big Dog;big-dog;korm_vlazhnyy_dlya_sobak
+BioMenu;biomenu;korm_vlazhnyy_dlya_sobak
+Blitz;blitz_2;korm_vlazhnyy_dlya_sobak
+Bozita;bozita;korm_vlazhnyy_dlya_sobak
+Brit;brit;korm_vlazhnyy_dlya_sobak
+BrooksField;brooksfield_3;korm_vlazhnyy_dlya_sobak
+Cesar;cesar;korm_vlazhnyy_dlya_sobak
+Chappi;chappi;korm_vlazhnyy_dlya_sobak
+Clan Family;clan-family;korm_vlazhnyy_dlya_sobak
+Crave;crave_3;korm_vlazhnyy_dlya_sobak
+Dogs Menu;dogs-menu;korm_vlazhnyy_dlya_sobak
+Dr. Alder`s;dr-alder-s;korm_vlazhnyy_dlya_sobak
+Edel Dog;edel-dog;korm_vlazhnyy_dlya_sobak
+Eukanuba;eukanuba_3;korm_vlazhnyy_dlya_sobak
+Farmina;farmina_2;korm_vlazhnyy_dlya_sobak
+FeliCat;felicat_1;korm_vlazhnyy_dlya_sobak
+Friskies;friskies_1;korm_vlazhnyy_dlya_sobak
+GimDog;gimdog;korm_vlazhnyy_dlya_sobak
+GO!;go_2;korm_vlazhnyy_dlya_sobak
+Grand Prix;grand-prix_3;korm_vlazhnyy_dlya_sobak
+Happy Dog;happy-dog;korm_vlazhnyy_dlya_sobak
+Hill`s;hill-s;korm_vlazhnyy_dlya_sobak
+Leo&Lucy;leo-lucy_2;korm_vlazhnyy_dlya_sobak
+Molina;molina;korm_vlazhnyy_dlya_sobak
+Morando;morando_2;korm_vlazhnyy_dlya_sobak
+Natures Protection;natures-protection_1;korm_vlazhnyy_dlya_sobak
+Nero Gold;nero-gold_2;korm_vlazhnyy_dlya_sobak
+Nuh;nuh_1;korm_vlazhnyy_dlya_sobak
+Nutro;nutro_2;korm_vlazhnyy_dlya_sobak
+Organix;organix_3;korm_vlazhnyy_dlya_sobak
+Pedigree;pedigree;korm_vlazhnyy_dlya_sobak
+Prime;prime_1;korm_vlazhnyy_dlya_sobak
+Pro Plan;pro-plan_1;korm_vlazhnyy_dlya_sobak
+ProBalance;probalance_2;korm_vlazhnyy_dlya_sobak
+ProLapa;prolapa_1;korm_vlazhnyy_dlya_sobak
+Purina One;purina-one;korm_vlazhnyy_dlya_sobak
+Royal Canin;royal-canin;korm_vlazhnyy_dlya_sobak
+Savarra;savarra_2;korm_vlazhnyy_dlya_sobak
+Schesir;schesir;korm_vlazhnyy_dlya_sobak
+Solid Natura;solid-natura;korm_vlazhnyy_dlya_sobak
+Stuzzy;stuzzy;korm_vlazhnyy_dlya_sobak
+Trainer;trainer_2;korm_vlazhnyy_dlya_sobak
+Vita Pro;vita-pro;korm_vlazhnyy_dlya_sobak
+VitAnimals;vitanimals;korm_vlazhnyy_dlya_sobak
+Winner;winner_3;korm_vlazhnyy_dlya_sobak
+Верные друзья;vernye-druzya;korm_vlazhnyy_dlya_sobak
+Деревенские лакомства;derevenskie-lakomstva;korm_vlazhnyy_dlya_sobak
+Дог Ланч;dog-lanch;korm_vlazhnyy_dlya_sobak
+ЕмБезПроблем;embezproblem;korm_vlazhnyy_dlya_sobak
+Зоогурман;zoogurman;korm_vlazhnyy_dlya_sobak
+МнЯмс;mnyams;korm_vlazhnyy_dlya_sobak
+Натуральная Формула;naturalnaya-formula;korm_vlazhnyy_dlya_sobak
+Наша марка;nasha-marka;korm_vlazhnyy_dlya_sobak
+Оскар;oskar;korm_vlazhnyy_dlya_sobak
+Погрызухин;pogryzukhin_1;korm_vlazhnyy_dlya_sobak
+Прохвост;prokhvost_2;korm_vlazhnyy_dlya_sobak
+Родные корма;rodnye-korma;korm_vlazhnyy_dlya_sobak
+Собачье Счастье;sobache-schaste;korm_vlazhnyy_dlya_sobak
+СпецМяс;spetsmyas;korm_vlazhnyy_dlya_sobak
+Терра Пес;terra-pes;korm_vlazhnyy_dlya_sobak
+ТитБит;titbit_3;korm_vlazhnyy_dlya_sobak
+Трапеза;trapeza;korm_vlazhnyy_dlya_sobak
+Четвероногий гурман;chetveronogiy-gurman;korm_vlazhnyy_dlya_sobak
 Petibon;petibon_1;chetveronogiy-gurman
 Готовый обед;gotovyy-obed;chetveronogiy-gurman
 Золотая линия;zolotaya-liniya;chetveronogiy-gurman
@@ -264,14 +264,14 @@ Petibon;petibon_1;chetveronogiy-gurman
 Платиновая линия;platinovaya-liniya;chetveronogiy-gurman
 Серебрянная линия;serebryannaya-liniya;chetveronogiy-gurman
 Сосиски;sosiski;chetveronogiy-gurman
-Экси;eksi;korm-vlazhnyy
-Mr.Buffalo;mr-buffalo_3;korm-vlazhnyy
-Корм лечебный;korm-lechebnyy;tovary-i-korma-dlya-sobak
-Advance;advance_3;korm-lechebnyy
-Brit;brit_3;korm-lechebnyy
-Clan;clan_3;korm-lechebnyy
-Farmina;farmina;korm-lechebnyy
-Hill`s;hill-s;korm-lechebnyy
+Экси;eksi;korm_vlazhnyy_dlya_sobak
+Mr.Buffalo;mr-buffalo_3;korm_vlazhnyy_dlya_sobak
+Корм лечебный для собак;korm_lechebnyy_dlya_sobak;tovary-i-korma-dlya-sobak
+Advance;advance_3;korm_lechebnyy_dlya_sobak
+Brit;brit_3;korm_lechebnyy_dlya_sobak
+Clan;clan_3;korm_lechebnyy_dlya_sobak
+Farmina;farmina;korm_lechebnyy_dlya_sobak
+Hill`s;hill-s;korm_lechebnyy_dlya_sobak
 Акция Hills;aktsiya-hills_4;hill-s
 Derm Complete;derm-complete;hill-s
 Derm Defense;derm-defense;hill-s
@@ -289,9 +289,9 @@ Canine W/D;canine-w-d_1;hill-s
 Canine Z/D;canine-z-d_1;hill-s
 Metabolic;metabolic_2;hill-s
 Gastrointestinal;gastrointestinal_1;hill-s
-Purina;purina;korm-lechebnyy
-Royal Canin;royal-canin;korm-lechebnyy
-Winner;winner_5;korm-lechebnyy
+Purina;purina;korm_lechebnyy_dlya_sobak
+Royal Canin;royal-canin;korm_lechebnyy_dlya_sobak
+Winner;winner_5;korm_lechebnyy_dlya_sobak
 Лакомства;lakomstva;tovary-i-korma-dlya-sobak
 Pro Plan;pro-plan;lakomstva
 AlpenHof;alpenhof;lakomstva
@@ -564,10 +564,10 @@ Zillii;zillii_1;korm_sukhoy_dlya_koshek
 Фаворит;favorit;korm_sukhoy_dlya_koshek
 Флорида;florida;korm_sukhoy_dlya_koshek
 Четвероногий гурман;chetveronogiy-gurman_1;korm_sukhoy_dlya_koshek
-Корм влажный;korm-vlazhnyy;tovary-i-korma-dlya-koshek
-1st Choice;1st-choice_1;korm-vlazhnyy
-All Cats;all-cats;korm-vlazhnyy
-Almo Nature;almo-nature;korm-vlazhnyy
+Корм влажный для кошек;korm_vlazhnyy_dlya_koshek;tovary-i-korma-dlya-koshek
+1st Choice;1st-choice_1;korm_vlazhnyy_dlya_koshek
+All Cats;all-cats;korm_vlazhnyy_dlya_koshek
+Almo Nature;almo-nature;korm_vlazhnyy_dlya_koshek
 Alternative;alternative;almo-nature
 Complete;complete;almo-nature
 HFC;hfc;almo-nature
@@ -578,123 +578,123 @@ Legend;legend;almo-nature
 Rouge Lebel;rouge-lebel;almo-nature
 Raw Pack;raw-pack;almo-nature
 Наборы;nabory;almo-nature
-Animonda;animonda;korm-vlazhnyy
+Animonda;animonda;korm_vlazhnyy_dlya_koshek
 Integra;integra;animonda
 Carny;carny;animonda
 RAFINE;rafine;animonda
 VOM FEINSTEN;vom-feinsten;animonda
-Apetino;apetino;korm-vlazhnyy
-Berkley;berkley;korm-vlazhnyy
-Best Dinner;best-dinner;korm-vlazhnyy
-BioMenu;biomenu;korm-vlazhnyy
-Blitz;blitz_3;korm-vlazhnyy
-Bozita;bozita;korm-vlazhnyy
-Brit;brit;korm-vlazhnyy
-BrooksField;brooksfield_2;korm-vlazhnyy
-Buffet;buffet;korm-vlazhnyy
-Cat Chow;cat-chow;korm-vlazhnyy
-Cat Lunch;cat-lunch;korm-vlazhnyy
-Cats Menu;cats-menu;korm-vlazhnyy
-Clan;clan;korm-vlazhnyy
-Clan Family;clan-family;korm-vlazhnyy
-Craft Farm;craft-farm;korm-vlazhnyy
-Crave;crave_2;korm-vlazhnyy
-Dr. Clauder`s;dr-clauder-s;korm-vlazhnyy
-Dr.Alder`s;dr-alder-s;korm-vlazhnyy
-Edel Cat;edel-cat;korm-vlazhnyy
-Eukanuba;eukanuba_2;korm-vlazhnyy
-Farmina;farmina_1;korm-vlazhnyy
-FeliCat;felicat;korm-vlazhnyy
-Felix;felix;korm-vlazhnyy
-Friskies;friskies;korm-vlazhnyy
-Gimcat;gimcat;korm-vlazhnyy
-Gina;gina;korm-vlazhnyy
-GO!;go_1;korm-vlazhnyy
-Gourmet;gourmet;korm-vlazhnyy
+Apetino;apetino;korm_vlazhnyy_dlya_koshek
+Berkley;berkley;korm_vlazhnyy_dlya_koshek
+Best Dinner;best-dinner;korm_vlazhnyy_dlya_koshek
+BioMenu;biomenu;korm_vlazhnyy_dlya_koshek
+Blitz;blitz_3;korm_vlazhnyy_dlya_koshek
+Bozita;bozita;korm_vlazhnyy_dlya_koshek
+Brit;brit;korm_vlazhnyy_dlya_koshek
+BrooksField;brooksfield_2;korm_vlazhnyy_dlya_koshek
+Buffet;buffet;korm_vlazhnyy_dlya_koshek
+Cat Chow;cat-chow;korm_vlazhnyy_dlya_koshek
+Cat Lunch;cat-lunch;korm_vlazhnyy_dlya_koshek
+Cats Menu;cats-menu;korm_vlazhnyy_dlya_koshek
+Clan;clan;korm_vlazhnyy_dlya_koshek
+Clan Family;clan-family;korm_vlazhnyy_dlya_koshek
+Craft Farm;craft-farm;korm_vlazhnyy_dlya_koshek
+Crave;crave_2;korm_vlazhnyy_dlya_koshek
+Dr. Clauder`s;dr-clauder-s;korm_vlazhnyy_dlya_koshek
+Dr.Alder`s;dr-alder-s;korm_vlazhnyy_dlya_koshek
+Edel Cat;edel-cat;korm_vlazhnyy_dlya_koshek
+Eukanuba;eukanuba_2;korm_vlazhnyy_dlya_koshek
+Farmina;farmina_1;korm_vlazhnyy_dlya_koshek
+FeliCat;felicat;korm_vlazhnyy_dlya_koshek
+Felix;felix;korm_vlazhnyy_dlya_koshek
+Friskies;friskies;korm_vlazhnyy_dlya_koshek
+Gimcat;gimcat;korm_vlazhnyy_dlya_koshek
+Gina;gina;korm_vlazhnyy_dlya_koshek
+GO!;go_1;korm_vlazhnyy_dlya_koshek
+Gourmet;gourmet;korm_vlazhnyy_dlya_koshek
 Нат.рецепты;nat-retsepty_1;gourmet
 A la Carte;a-la-carte;gourmet
 Gold;gold;gourmet
 Mon Petit;mon-petit;gourmet
 Perle;perle;gourmet
-Grand Prix;grand-prix_2;korm-vlazhnyy
-Happy Cat;happy-cat;korm-vlazhnyy
-Herbax;herbax;korm-vlazhnyy
-Hill`s;hill-s;korm-vlazhnyy
+Grand Prix;grand-prix_2;korm_vlazhnyy_dlya_koshek
+Happy Cat;happy-cat;korm_vlazhnyy_dlya_koshek
+Herbax;herbax;korm_vlazhnyy_dlya_koshek
+Hill`s;hill-s;korm_vlazhnyy_dlya_koshek
 Взрослые;vzroslye;hill-s
 Котята;kotyata;hill-s
 Пожилые;pozhilye;hill-s
-Karmy;karmy_2;korm-vlazhnyy
-KiteKat;kitekat;korm-vlazhnyy
-Leo&Lucy;leo-lucy;korm-vlazhnyy
-Leonardo;leonardo;korm-vlazhnyy
-Matisse;matisse_1;korm-vlazhnyy
-Me-O;me-o;korm-vlazhnyy
-Meowing Heads;meowing-heads_1;korm-vlazhnyy
-Mi-Мi;mi-mi;korm-vlazhnyy
-Mjau;mjau;korm-vlazhnyy
-Molina;molina;korm-vlazhnyy
-Morando;morando;korm-vlazhnyy
-Nature Gold;nature-gold;korm-vlazhnyy
-Nature`s Table;nature-s-table;korm-vlazhnyy
-Natures Protection;natures-protection;korm-vlazhnyy
-Nuh;nuh;korm-vlazhnyy
-Nutro;nutro;korm-vlazhnyy
-Onto;onto;korm-vlazhnyy
-Organix;organix_1;korm-vlazhnyy
-Perfect Fit;perfect-fit;korm-vlazhnyy
-Petreet;petreet;korm-vlazhnyy
+Karmy;karmy_2;korm_vlazhnyy_dlya_koshek
+KiteKat;kitekat;korm_vlazhnyy_dlya_koshek
+Leo&Lucy;leo-lucy;korm_vlazhnyy_dlya_koshek
+Leonardo;leonardo;korm_vlazhnyy_dlya_koshek
+Matisse;matisse_1;korm_vlazhnyy_dlya_koshek
+Me-O;me-o;korm_vlazhnyy_dlya_koshek
+Meowing Heads;meowing-heads_1;korm_vlazhnyy_dlya_koshek
+Mi-Мi;mi-mi;korm_vlazhnyy_dlya_koshek
+Mjau;mjau;korm_vlazhnyy_dlya_koshek
+Molina;molina;korm_vlazhnyy_dlya_koshek
+Morando;morando;korm_vlazhnyy_dlya_koshek
+Nature Gold;nature-gold;korm_vlazhnyy_dlya_koshek
+Nature`s Table;nature-s-table;korm_vlazhnyy_dlya_koshek
+Natures Protection;natures-protection;korm_vlazhnyy_dlya_koshek
+Nuh;nuh;korm_vlazhnyy_dlya_koshek
+Nutro;nutro;korm_vlazhnyy_dlya_koshek
+Onto;onto;korm_vlazhnyy_dlya_koshek
+Organix;organix_1;korm_vlazhnyy_dlya_koshek
+Perfect Fit;perfect-fit;korm_vlazhnyy_dlya_koshek
+Petreet;petreet;korm_vlazhnyy_dlya_koshek
 NATURA куриные грудки;natura-kurinye-grudki;petreet
 NATURA розовый тунец;natura-rozovyy-tunets;petreet
-PreVital;prevital;korm-vlazhnyy
-Prime;prime;korm-vlazhnyy
-Pro Plan;pro-plan;korm-vlazhnyy
-ProBalance;probalance;korm-vlazhnyy
-ProLapa;prolapa;korm-vlazhnyy
-Puffins;puffins;korm-vlazhnyy
-Purina One;purina-one_3;korm-vlazhnyy
-Royal Canin;royal-canin;korm-vlazhnyy
-Schesir;schesir;korm-vlazhnyy
+PreVital;prevital;korm_vlazhnyy_dlya_koshek
+Prime;prime;korm_vlazhnyy_dlya_koshek
+Pro Plan;pro-plan;korm_vlazhnyy_dlya_koshek
+ProBalance;probalance;korm_vlazhnyy_dlya_koshek
+ProLapa;prolapa;korm_vlazhnyy_dlya_koshek
+Puffins;puffins;korm_vlazhnyy_dlya_koshek
+Purina One;purina-one_3;korm_vlazhnyy_dlya_koshek
+Royal Canin;royal-canin;korm_vlazhnyy_dlya_koshek
+Schesir;schesir;korm_vlazhnyy_dlya_koshek
 Баночки;banochki;schesir
 Паучи;pauchi;schesir
 Bio;bio;schesir
-Sheba;sheba;korm-vlazhnyy
-Solid Natura;solid-natura;korm-vlazhnyy
-Stuzzy;stuzzy;korm-vlazhnyy
-Tasty;tasty;korm-vlazhnyy
-Vita Pro;vita-pro;korm-vlazhnyy
-Vitakraft;vitakraft;korm-vlazhnyy
-VitAnimals;vitanimals;korm-vlazhnyy
-Whiskas;whiskas;korm-vlazhnyy
+Sheba;sheba;korm_vlazhnyy_dlya_koshek
+Solid Natura;solid-natura;korm_vlazhnyy_dlya_koshek
+Stuzzy;stuzzy;korm_vlazhnyy_dlya_koshek
+Tasty;tasty;korm_vlazhnyy_dlya_koshek
+Vita Pro;vita-pro;korm_vlazhnyy_dlya_koshek
+Vitakraft;vitakraft;korm_vlazhnyy_dlya_koshek
+VitAnimals;vitanimals;korm_vlazhnyy_dlya_koshek
+Whiskas;whiskas;korm_vlazhnyy_dlya_koshek
 Взрослые;vzroslye;whiskas
 Котята;kotyata;whiskas
 Пожилые;pozhilye;whiskas
-Zillii;zillii;korm-vlazhnyy
-Амурр;amurr;korm-vlazhnyy
-Деревенские лакомства;derevenskie-lakomstva_1;korm-vlazhnyy
-ЕмБезПроблем;embezproblem;korm-vlazhnyy
-Зоогурман;zoogurman;korm-vlazhnyy
-Мираторг;miratorg;korm-vlazhnyy
-МнЯмс;mnyams;korm-vlazhnyy
-МонАми;monami;korm-vlazhnyy
-Наша марка;nasha-marka;korm-vlazhnyy
-Ночной охотник;nochnoy-okhotnik;korm-vlazhnyy
-Прохвост;prokhvost_1;korm-vlazhnyy
-Родные корма;rodnye-korma;korm-vlazhnyy
-Стаут;staut;korm-vlazhnyy
-Терра Кот;terra-kot;korm-vlazhnyy
-Четвероногий гурман;chetveronogiy-gurman;korm-vlazhnyy
+Zillii;zillii;korm_vlazhnyy_dlya_koshek
+Амурр;amurr;korm_vlazhnyy_dlya_koshek
+Деревенские лакомства;derevenskie-lakomstva_1;korm_vlazhnyy_dlya_koshek
+ЕмБезПроблем;embezproblem;korm_vlazhnyy_dlya_koshek
+Зоогурман;zoogurman;korm_vlazhnyy_dlya_koshek
+Мираторг;miratorg;korm_vlazhnyy_dlya_koshek
+МнЯмс;mnyams;korm_vlazhnyy_dlya_koshek
+МонАми;monami;korm_vlazhnyy_dlya_koshek
+Наша марка;nasha-marka;korm_vlazhnyy_dlya_koshek
+Ночной охотник;nochnoy-okhotnik;korm_vlazhnyy_dlya_koshek
+Прохвост;prokhvost_1;korm_vlazhnyy_dlya_koshek
+Родные корма;rodnye-korma;korm_vlazhnyy_dlya_koshek
+Стаут;staut;korm_vlazhnyy_dlya_koshek
+Терра Кот;terra-kot;korm_vlazhnyy_dlya_koshek
+Четвероногий гурман;chetveronogiy-gurman;korm_vlazhnyy_dlya_koshek
 Petibon;petibon;chetveronogiy-gurman
 Суфле;sufle;chetveronogiy-gurman
 Золотая линия;zolotaya-liniya;chetveronogiy-gurman
 Мясное ассорти;myasnoe-assorti;chetveronogiy-gurman
 Паштет;pashtet;chetveronogiy-gurman
-Mr.Buffalo;mr-buffalo_2;korm-vlazhnyy
-Корм лечебный;korm-lechebnyy;tovary-i-korma-dlya-koshek
-Advance;advance_2;korm-lechebnyy
-Brit;brit_2;korm-lechebnyy
-Clan;clan_1;korm-lechebnyy
-Farmina;farmina;korm-lechebnyy
-Hill`s;hill-s;korm-lechebnyy
+Mr.Buffalo;mr-buffalo_2;korm_vlazhnyy_dlya_koshek
+Корм лечебный для кошек;korm_lechebnyy_dlya_koshek;tovary-i-korma-dlya-koshek
+Advance;advance_2;korm_lechebnyy_dlya_koshek
+Brit;brit_2;korm_lechebnyy_dlya_koshek
+Clan;clan_1;korm_lechebnyy_dlya_koshek
+Farmina;farmina;korm_lechebnyy_dlya_koshek
+Hill`s;hill-s;korm_lechebnyy_dlya_koshek
 Gastrointestinal;gastrointestinal;hill-s
 Акция Hills;aktsiya-hills_3;hill-s
 Feline A/D;feline-a-d;hill-s
@@ -710,10 +710,10 @@ Feline W/D;feline-w-d;hill-s
 Feline Y/D;feline-y-d;hill-s
 Feline Z/D;feline-z-d;hill-s
 Metabolic;metabolic;hill-s
-Purina;purina;korm-lechebnyy
-Royal Canin;royal-canin;korm-lechebnyy
-Solid Natura;solid-natura_1;korm-lechebnyy
-Мираторг;miratorg_1;korm-lechebnyy
+Purina;purina;korm_lechebnyy_dlya_koshek
+Royal Canin;royal-canin;korm_lechebnyy_dlya_koshek
+Solid Natura;solid-natura_1;korm_lechebnyy_dlya_koshek
+Мираторг;miratorg_1;korm_lechebnyy_dlya_koshek
 Наполнитель;napolnitel;tovary-i-korma-dlya-koshek
 AK Cat;ak-cat;napolnitel
 Brava;brava;napolnitel

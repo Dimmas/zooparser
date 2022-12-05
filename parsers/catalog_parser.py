@@ -1,12 +1,13 @@
-from helpers import CTLG_Helper, PG_Helper
+from helpers import CTLG_Helper, PG_Helper, get_logger
+
+catalog_logger = get_logger(__name__)
 
 
 class CatalogParser:
     full_catalog = []
 
     def __init__(self, source: str):
-        print('***')
-        print('starting directory parsing')
+        catalog_logger.info('*** starting catalog parsing ***')
         self.source = source
 
     def __enter__(self):
@@ -24,7 +25,7 @@ class CatalogParser:
                     )
                     self.full_catalog += full_cat
                 except Exception as e:
-                    print(e)
+                    catalog_logger.error(e)
         else:
             with PG_Helper(self.source) as pgh:
                 html = pgh.get_text()
@@ -37,7 +38,7 @@ class CatalogParser:
                         full_cat = self.parse_subcatalog(self.source + child_href[1:])
                         self.full_catalog += full_cat
                     except Exception as e:
-                        print(e)
+                        catalog_logger.error(e)
         return self._get_href_list()
 
     def _get_href_list(self):
@@ -55,13 +56,13 @@ class CatalogParser:
         with PG_Helper(source) as pgh:
             html = pgh.get_text()
         if not html:
-            raise Exception('not connection to ', source)
+            raise Exception(f'not connection to {source}')
         with CTLG_Helper(html, selector='div.catalog-menu-left ul li') as subctlg_parser:
             subctlg_parser.get_catalog(subcatalog=subcatalog)
             return subctlg_parser.get_childs_list()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print('catalog parsing is completed')
+        catalog_logger.info('*** catalog parsing is completed ***')
         if len(self.full_catalog):
             CTLG_Helper.save_csv(self.full_catalog)
         if exc_val:

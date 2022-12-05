@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
+from helpers import get_logger
+
+prd_logger = get_logger(__name__, console_silence=True)
 
 
 class PRD_Helper:
@@ -33,29 +36,35 @@ class PRD_Helper:
     def get_prod(self, selector):
         try:
             product_div = self.bs4.select_one(selector)
-        except AttributeError:
-            print('product not found by selector: ', selector)
-            return None
+        except:
+            prd_logger.error(f'product not found by selector: {selector} in {self.sku_link}')
+            return False
+        if not product_div:
+            prd_logger.error(f'product not found by selector: {selector} in {self.sku_link}')
+            return False
         try:
             sku_country = product_div.select_one('div.catalog-element-offer-left p').get_text().split(' ')[2]
             if sku_country[-1] == ',':
                 sku_country = sku_country[:-1]
         except:
+            prd_logger.warning(f'product sku_country not found in {self.sku_link}')
             sku_country = None
 
         try:
             sku_name = product_div.select_one('h1').get_text()
         except:
+            prd_logger.warning(f'product sku_name not found in {self.sku_link}')
             sku_name = None
 
         try:
             sku_category = '|'.join([a.text for a in self.bs4.select('ul.breadcrumb-navigation li a')])
         except:
+            prd_logger.warning(f'product sku_category not found in {self.sku_link}')
             sku_category = None
 
         try:
             positions_table = product_div.select_one('table').select('tr.b-catalog-element-offer')
-        except AttributeError:
+        except:
             self.position_warning()
             return None
 
@@ -84,11 +93,13 @@ class PRD_Helper:
             try:
                 sku_article = td[0].select('b')[1].text
             except:
+                prd_logger.warning(f'product sku_article not found in {self.sku_link}')
                 pass
 
             try:
                 sku_barcode = td[1].select('b')[1].text
             except:
+                prd_logger.warning(f'product sku_barcode not found in {self.sku_link}')
                 pass
 
             try:
@@ -100,6 +111,7 @@ class PRD_Helper:
                 if 'л' in packing:
                     sku_volume_min = packing
             except:
+                prd_logger.warning(f'product packing not found in {self.sku_link}')
                 pass
 
             try:
@@ -116,6 +128,7 @@ class PRD_Helper:
                 else:
                     price_promo = price_
             except:
+                prd_logger.warning(f'product price/price_promo not found in {self.sku_link}')
                 pass
 
             try:
@@ -142,7 +155,7 @@ class PRD_Helper:
             }
 
     def position_warning(self):
-        print('positions not found on page ', self.sku_link)
+        prd_logger.warning(f'positions not found on page {self.sku_link}')
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_val:
