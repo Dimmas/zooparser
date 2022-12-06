@@ -64,15 +64,20 @@ class CTLG_Helper:
 
     @staticmethod
     def save_csv(catalog: dict):
-        with open(f'{CFG_helper().get_output_directory()}/categories.csv', 'w', encoding='utf8', newline='') as output_file:
-            dict_writer = csv.DictWriter(
-                output_file,
-                delimiter=";",
-                fieldnames=catalog[0].keys(),
-                quoting=csv.QUOTE_NONE
-            )
-            dict_writer.writeheader()
-            dict_writer.writerows(catalog)
+        path = f'{CFG_helper().get_output_directory()}/categories.csv'
+        try:
+            with open(path, 'w', encoding='utf8', newline='') as output_file:
+                dict_writer = csv.DictWriter(
+                    output_file,
+                    delimiter=";",
+                    fieldnames=catalog[0].keys(),
+                    quoting=csv.QUOTE_NONE
+                )
+                dict_writer.writeheader()
+                dict_writer.writerows(catalog)
+        except:
+            raise Exception(f'can not write csv file: file not found {path}')
+        return True
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_val:

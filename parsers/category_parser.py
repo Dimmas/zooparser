@@ -15,14 +15,18 @@ class CategoryParser:
 
     def __enter__(self):
         category_logger.info('*** starting category parsing ***')
-        with open(f'{self.output_directory}/positions.csv', 'w', encoding='utf8', newline='') as output_file:
-            dict_writer = csv.DictWriter(
-                output_file,
-                delimiter=";",
-                fieldnames=PRD_Helper.futures,
-                quoting=csv.QUOTE_NONE
-            )
-            dict_writer.writeheader()
+        self.path = f'{self.output_directory}/positions.csv'
+        try:
+            with open(self.path, 'w', encoding='utf8', newline='') as output_file:
+                dict_writer = csv.DictWriter(
+                    output_file,
+                    delimiter=";",
+                    fieldnames=PRD_Helper.futures,
+                    quoting=csv.QUOTE_NONE
+                )
+                dict_writer.writeheader()
+        except:
+            raise Exception(f'can not write csv file: file not found {self.path}')
         return self
 
     def parse_categories(self, href_set: list):
@@ -90,7 +94,10 @@ class CategoryParser:
                         except:
                             category_logger.error(f'can not to parse {href}')
                             continue
-                        self.save_csv(positions)
+                        try:
+                            self.save_csv(positions)
+                        except Exception as e:
+                            category_logger.error(f'can not write csv file: {e}')
                 category_logger.info(f'parsing completed for page № {page_num} of {cat_href}')
             else:
                 category_logger.warning(f'page is empty: {cat_href}')
@@ -117,14 +124,18 @@ class CategoryParser:
                 yield product
 
     def save_csv(self, positions):
-        with open(f'{self.output_directory}/positions.csv', 'a', encoding='utf8', newline='') as output_file:
-            dict_writer = csv.DictWriter(
-                output_file,
-                delimiter=";",
-                fieldnames=PRD_Helper.futures,
-                quoting=csv.QUOTE_NONE
-            )
-            dict_writer.writerows(positions)
+        try:
+            with open(self.path, 'a', encoding='utf8', newline='') as output_file:
+                dict_writer = csv.DictWriter(
+                    output_file,
+                    delimiter=";",
+                    fieldnames=PRD_Helper.futures,
+                    quoting=csv.QUOTE_NONE
+                )
+                dict_writer.writerows(positions)
+        except:
+            raise Exception(f'file not found {self.path}')
+        return True
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         category_logger.info('*** parsing categories is completed ***')
