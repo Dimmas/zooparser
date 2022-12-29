@@ -1,6 +1,8 @@
 from concurrent.futures import ThreadPoolExecutor
-from helpers import CTGR_Helper, PRD_Helper, PG_Helper, CFG_helper, get_logger
+from helpers import CTGR_Helper, PRD_Helper, PG_Helper, get_logger
+from settings import config
 import csv
+import os
 
 category_logger = get_logger(__name__)
 
@@ -11,7 +13,9 @@ class CategoryParser:
 
     def __init__(self, source: str):
         self.source = source
-        self.output_directory = CFG_helper().get_output_directory()
+        self.output_directory = config.OUT_DIR
+        self.positions_html_dir = f'{self.output_directory}/positions_html/'
+        list(map(os.unlink, (os.path.join(self.positions_html_dir, f) for f in os.listdir(self.positions_html_dir))))
 
     def __enter__(self):
         category_logger.info('*** starting category parsing ***')
@@ -25,16 +29,16 @@ class CategoryParser:
                     quoting=csv.QUOTE_NONE
                 )
                 dict_writer.writeheader()
-        except:
-            raise Exception(f'can not write csv file: file not found {self.path}')
+        except Exception as e:
+            raise Exception(f'can not write csv file: {e}')
         return self
 
-    def parse_categories(self, href_set: list):
+    def parse_categories(self, href_set: set):
         """
         Парсит категории. Запускает parse_category(), которая определяет сколько страниц в категории
         и запускает self.parse_cat_page() для парсинга ссылок на товары с очередной странички категории.
         на товары
-        :param href_set: список категорий для парсинга
+        :param href_set: множество категорий для парсинга
         :return:
         """
         def parse_category(href: str):
@@ -61,10 +65,10 @@ class CategoryParser:
                         category_logger.error(f'can not to parse {href}, page_num={page_num}')
                         continue
 
-        delay = CFG_helper().get_delay_range_s()
+        delay = config.DELAY
         if not isinstance(delay, list):
             with ThreadPoolExecutor(16) as exe:
-                exe.map(parse_category, href_set, timeout=10)
+                exe.map(parse_category, href_set, timeout=30)
         else:
             for href in href_set:
                 parse_category(href)
@@ -119,8 +123,13 @@ class CategoryParser:
                 if (product['sku_barcode'], product['sku_article']) in self.hash:
                     continue
                 self.hash.add(product['sku_barcode'] + product['sku_article'])
-                # пока не выводим никуда результат сканирования отдельной позиции, чтобы не раздувать лог и не загромождать std_out
-                # category_logger.info(f"  parsed position (articul={str(product['sku_article'])}, barcode={str(product['sku_barcode'])})")
+                try:
+                    self.save_html(
+                        file_name=f"{self.positions_html_dir + product['sku_article'] + product['sku_barcode']}.html",
+                        html=html
+                    )
+                except Exception as e:
+                    category_logger.error(f'{e}')
                 yield product
 
     def save_csv(self, positions):
@@ -130,12 +139,20 @@ class CategoryParser:
                     output_file,
                     delimiter=";",
                     fieldnames=PRD_Helper.futures,
-                    quoting=csv.QUOTE_NONE
+                    quoting=csv.QUOTE_NONE,
+                    quotechar='',
+                    escapechar='\\'
                 )
                 dict_writer.writerows(positions)
-        except:
-            raise Exception(f'file not found {self.path}')
-        return True
+        except Exception as e:
+            raise Exception(f'can not write csv file: {e}')
+
+    def save_html(self, file_name: str, html: str):
+        try:
+            with open(file_name, "w") as file:
+                file.write(html)
+        except Exception as e:
+            raise Exception(f'can not write html file ({file_name}): {e}')
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         category_logger.info('*** parsing categories is completed ***')

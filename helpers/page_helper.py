@@ -1,4 +1,4 @@
-from helpers.cfg_helper import CFG_helper
+from settings import config
 from helpers.log_helper import get_logger
 import requests as rq
 import time
@@ -11,14 +11,15 @@ class PG_Helper:
     __slots__ = ('res',)
 
     def __init__(self, source):
-        delay = CFG_helper().get_delay_range_s()
+        delay = config.DELAY
         if isinstance(delay, list):
             time.sleep(randint(*delay))
-        for _ in range(CFG_helper().get_max_retries()):
+        for _ in range(config.MAX_RETRIES):
             try:
-                self.res = rq.get(source, headers=CFG_helper().get_headers(), timeout=10)
+                self.res = rq.get(source, headers=config.HEADERS, timeout=30, proxies=config.PROXIES)
                 break
             except:
+                time.sleep(randint(1, 5))
                 page_logger.error(f'not connection to {source}')
 
     def __enter__(self):

@@ -39,17 +39,13 @@ class CatalogParser:
                         self.full_catalog += full_cat
                     except Exception as e:
                         catalog_logger.error(e)
-        return self._get_href_list()
+        return self._get_href_set()
 
-    def _get_href_list(self):
-        catalog_href_list = []
+    def _get_href_set(self):
         if len(self.full_catalog):
             parents_set = {cat['parent_id'] for cat in self.full_catalog}
-            for cat in self.full_catalog:
-                if cat['id'] not in parents_set:
-                    catalog_href_list.append(cat['href'])
-                cat.pop('href')
-        return catalog_href_list
+            return {cat['href'] for cat in self.full_catalog if cat['id'] not in parents_set}
+        return set()
 
     @staticmethod
     def parse_subcatalog(source, subcatalog=None):

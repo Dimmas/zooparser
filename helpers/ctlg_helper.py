@@ -1,4 +1,4 @@
-from helpers.cfg_helper import CFG_helper
+from settings import config
 from bs4 import BeautifulSoup
 import csv
 import re
@@ -64,7 +64,7 @@ class CTLG_Helper:
 
     @staticmethod
     def save_csv(catalog: dict):
-        path = f'{CFG_helper().get_output_directory()}/categories.csv'
+        path = f'{config.OUT_DIR}/catalog.csv'
         try:
             with open(path, 'w', encoding='utf8', newline='') as output_file:
                 dict_writer = csv.DictWriter(
