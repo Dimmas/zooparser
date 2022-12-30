@@ -29,6 +29,28 @@
          - software-properties-common
        state: present
 
+   - name: Add Docker’s official GPG key
+     apt_key:
+       url: https://download.docker.com/linux/ubuntu/gpg
+       state: present
+   - name: Add Docker Repository
+     apt_repository:
+       repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+       state: present
+       filename: docker
+       mode: 0600
+   - name: Install Docker Engine.
+     apt:
+       name:
+         - docker-ce
+         - docker-ce-cli
+         - containerd.io
+       state: present
+   - name: Enable service docker, and enable persistently
+     service:
+       name: docker
+       enabled: yes
+
    - name: Add Google official GPG key
      apt_key:
        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -61,7 +83,7 @@
        connect_timeout: 60
        test_command: uptime
 
-   - pause: seconds=20
+   - pause: seconds=300
 
 - hosts: masters
   remote_user: root
@@ -71,28 +93,10 @@
   gather_facts: yes
   connection: ssh
 
-  vars_prompt:
-
-   - name: "pod_network_cidr"
-     prompt: "Enter the Pod Network CIDR, example: 192.168.100.0/24"
-     private: no
-
-   - name: "k8s_master_ip"
-     prompt: "Enter the Apiserver advertise address, example: 192.168.0.26"
-     private: no
-
-   - name: "pod_network_manifest_file"
-     prompt: "Enter the Pod network manifest file URL, Your choice could be flannel, weave or calico, etc."
-     private: no
-
-   - name: "rbac_manifest_file"
-     prompt: "Enter the RBAC manifest file URL"
-     private: no
-
   tasks:
 
    - name: Intilizing Kubernetes Cluster
-     command: kubeadm init --pod-network-cidr "{{ pod_network_cidr }}"  --apiserver-advertise-address "{{ k8s_master_ip }}"
+     command: kubeadm init --pod-network-cidr "{{ pod_network_cidr }}"  --apiserver-advertise-address "{{ k8s_master_ip }}" --ignore-preflight-errors=non-fatal
      run_once: true
      delegate_to: "{{ k8s_master_ip }}"
 
@@ -138,7 +142,6 @@
      command: "{{ item }}"
      with_items:
         - kubectl apply -f {{ pod_network_manifest_file }}
-        - kubectl apply -f {{ rbac_manifest_file }}
 
    - pause: seconds=30
 
