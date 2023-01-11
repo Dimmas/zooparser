@@ -1,18 +1,14 @@
 ---
-- hosts: all
-  become: yes
-  gather_facts: false
-  roles:
-    - create_kuber_cluster
-
 - hosts: masters
   become: yes
   gather_facts: true
+
   roles:
     - init_master_node
 
 - hosts: workers
   become: yes
   gather_facts: true
+
   roles:
     - init_worker_nodes

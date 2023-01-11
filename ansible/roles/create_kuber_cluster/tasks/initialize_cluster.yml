@@ -1,0 +1,33 @@
+---
+# tasks file for init_master_node
+- name: create .kube directory
+  become: yes
+  become_user: "{{ new_user }}"
+  file:
+    path: $HOME/.kube
+    state: directory
+    mode: 0700
+  notify: Initialize the cluster
+
+- name: copy admin.conf to user's kube config
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: /home/{{ new_user }}/.kube/config
+    remote_src: yes
+    owner: "{{ new_user }}"
+
+- name: install Pod network
+  become: yes
+  become_user: "{{ new_user }}"
+  shell: kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml >> pod_network_setup.txt
+  args:
+    chdir: $HOME
+    creates: pod_network_setup.txt
+
+- name: get join command
+  shell: kubeadm token create --print-join-command
+  register: join_command_raw
+
+- name: set join command
+  set_fact:
+    join_command: "{{ join_command_raw.stdout_lines[0] }}"

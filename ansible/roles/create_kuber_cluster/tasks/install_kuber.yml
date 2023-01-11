@@ -1,0 +1,91 @@
+---
+- name: Make the Swap inactive
+  command: swapoff -a
+
+- name: Remove Swap entry from /etc/fstab.
+  lineinfile:
+    dest: /etc/fstab
+    regexp: swap
+    state: absent
+
+- name: Add an apt key by id from keyserver.ubuntu.com
+  block:
+    - name: install 04EE7237B7D453EC gpg
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 04EE7237B7D453EC
+    - name: install 648ACFD622F3D138 gpg
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 648ACFD622F3D138
+    - name: install 0E98404D386FA1D9 gpg
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: 0E98404D386FA1D9
+    - name: install EF0F382A1A7B6500 gpg
+      apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: EF0F382A1A7B6500
+
+- name: Add Debian repository
+  block:
+    - name: Add Debian stretch main
+      apt_repository:
+        repo: deb http://deb.debian.org/debian/ stretch main
+        state: present
+    - name: Add Debian stretch-updates main
+      apt_repository:
+        repo: deb http://deb.debian.org/debian/ stretch-updates main
+        state: present
+- name: Create a empty file for kubernetes sysctl params.
+  copy:
+    content: ""
+    dest: /etc/sysctl.d/99-kubernetes-cri.conf
+    force: no
+
+- name: Configure sysctl params for Kubernetes.
+  lineinfile:
+    path: /etc/sysctl.d/99-kubernetes-cri.conf
+    line: "{{ item }}"
+  with_items:
+    - 'net.bridge.bridge-nf-call-iptables  = 1'
+    - 'net.ipv4.ip_forward                 = 1'
+    - 'net.bridge.bridge-nf-call-ip6tables = 1'
+- name: Apply sysctl params without reboot.
+  command: sysctl --system
+
+- name: Installing Prerequisites for Kubernetes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg2
+      - software-properties-common
+    state: present
+
+- name: Add Google official GPG key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add Kubernetes Repository
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: kubernetes
+    mode: 0600
+
+- name: Installing Kubernetes Cluster Packages.
+  apt:
+    name:
+      - kubeadm=1.21.1-00
+      - kubectl=1.21.1-00
+      - kubelet=1.21.1-00
+    state: present
+  notify: Reboot kubernetes nodes
+
+- name: Enable service kubelet, and enable persistently
+  service:
+    name: kubelet
+    enabled: yes
