@@ -4,6 +4,7 @@
 from helpers import get_logger, Vscale_Helper
 from settings import config
 import time
+import yaml
 from ansible_runner import Runner, RunnerConfig
 
 main_logger = get_logger(__name__)
@@ -11,7 +12,7 @@ main_logger = get_logger(__name__)
 
 if __name__ == '__main__':
     # Create nodes into vscale-provider
-    vs = Vscale_Helper(client_id=config.VSCALE_CID, api_key=config.VSCALE_API_KEY)
+    """vs = Vscale_Helper(client_id=config.VSCALE_CID, api_key=config.VSCALE_API_KEY)
     target_image = [image for image in vs.images_list() if 'docker' in image['id']][0]
     for i in range(config.PROXIES_COUNT):
         vs.scalet_create(
@@ -34,7 +35,14 @@ if __name__ == '__main__':
         f.write('\n[workers]\n')
         f.writelines(scalets_ip_list[1:])
 
-    time.sleep(60)
+    with open('ansible/group_vars/all', 'r+') as gv:
+        group_all_vars = yaml.load(gv, Loader=yaml.FullLoader)
+        group_all_vars['k8s_master_ip'] = master_node
+        gv.seek(0)
+        yaml.dump(group_all_vars, gv, default_flow_style=False)
+        gv.truncate()
+
+    time.sleep(60)"""
 
     # Using tag using RunnerConfig
     rc = RunnerConfig(

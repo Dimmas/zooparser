@@ -1,0 +1,5 @@
+---
+# defaults file for init_master_node
+network_cidr: 10.244.0.0/16
+master_node_ip: 192.168.122.116
+...

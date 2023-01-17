@@ -1,0 +1,8 @@
+---
+# handlers file for create_kuber_cluster
+- name: Reboot kubernetes nodes
+  reboot:
+    post_reboot_delay: 30
+    reboot_timeout: 40
+    connect_timeout: 60
+    test_command: uptime

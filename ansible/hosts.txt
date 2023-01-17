@@ -1,4 +1,5 @@
 [masters]
-84.38.180.133
+master ansible_host=192.168.122.116
 [workers]
-84.38.180.42
+worker1 ansible_host=192.168.122.117
+worker2 ansible_host=192.168.122.118

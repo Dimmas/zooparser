@@ -1,0 +1,15 @@
+---
+# tasks file for create_kuber_cluster
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Create new user
+  include_tasks: create_user.yml
+
+- name: Install Docker
+  include_tasks: install_docker.yml
+
+- name: Install Kuber
+  include_tasks: install_kuber.yml
+

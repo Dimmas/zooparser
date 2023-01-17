@@ -62,6 +62,7 @@
       - curl
       - gnupg2
       - software-properties-common
+      - acl
     state: present
 
 - name: Add Google official GPG key
